@@ -1,5 +1,4 @@
 import { Button } from "@mui/material";
-import React from "react";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ id }) => {
@@ -12,7 +11,7 @@ const ProductCard = ({ id }) => {
           className="h-[10rem]"
         />
       </figure>
-      <div className="card-body bg-[#ffffff]   ">
+      <div className="card-body bg-[#ffffff]">
         <h2 className="card-title text-[#111827]">Black Over Size Tees!</h2>
         <p className="text-gray-700">
           If a dog chews shoes whose shoes does he choose?

@@ -26,6 +26,26 @@ const CreateCard = () => {
       console.log(error.message);
     }
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post("/products/create-product", {
+        name: name,
+        description: description,
+        price: price,
+        quantity: quantity,
+        photo: photo.url,
+      });
+      console.log(data);
+      if (data.success) {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <>
       <section>
@@ -35,7 +55,7 @@ const CreateCard = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Create your Product
               </h1>
-              <form className="space-y-4 md:space-y-6">
+              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Name
@@ -61,14 +81,14 @@ const CreateCard = () => {
                     id="description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    placeholder="••••••••"
+                    placeholder="description"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    Description
+                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize">
+                    price
                   </label>
                   <input
                     type="number"
@@ -98,11 +118,13 @@ const CreateCard = () => {
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     {upload && "uploading..."}
                     photo
-                    <img
-                      src={photo?.url}
-                      alt=""
-                      className="w-32 h-32 rounded-lg"
-                    />
+                    {photo?.url && (
+                      <img
+                        src={photo?.url}
+                        alt=""
+                        className="w-32 h-32 rounded-lg"
+                      />
+                    )}
                   </label>
                   <input
                     type="file"
@@ -116,7 +138,7 @@ const CreateCard = () => {
                 <div className="flex items-center justify-between"></div>
                 <button
                   type="submit"
-                  className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  className="w-full text-white bg-slate-600 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                 >
                   Create
                 </button>

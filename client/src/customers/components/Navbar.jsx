@@ -538,17 +538,18 @@ export default function Navigation() {
                         </div>
                         <ul
                           tabIndex={0}
-                          className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-white"
+                          className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-2xl  rounded-box w-52 bg-slate-50
+                          "
                         >
                           <li>
-                            <a className="justify-between">
+                            <a className="justify-between  text-gray-700">
                               Profile
                               <span className="badge">{userInfo.role}</span>
                             </a>
                           </li>
                           <li>
                             <div className="text-sm font-medium text-gray-700 hover:text-gray-800 cursor-pointer">
-                              <Link to="/admin" >Admin Dashboard</Link>
+                              <Link to="/admin">Admin Dashboard</Link>
                             </div>
                           </li>
                           <li>

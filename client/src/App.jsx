@@ -1,4 +1,3 @@
-import React from "react";
 import HomePage from "./customers/pages/HomePage";
 import { Route, Routes } from "react-router-dom";
 import Product from "./customers/components/products/Product";
@@ -7,8 +6,8 @@ import ProductDetails from "./customers/components/products/ProductDetails";
 import Login from "./customers/auth/Login";
 import axios from "axios";
 import Signup from "./customers/auth/Signup";
-import AdminDashboard from "./customers/components/products/admin/AdminDashboard";
-import ProtectedAdmin from "./customers/components/products/admin/ProtectedAdmin";
+import AdminDashboard from "./admin/AdminDashboard";
+import ProtectedAdmin from "./admin/ProtectedAdmin";
 axios.defaults.baseURL = "http://localhost:7000";
 
 const App = () => {
@@ -23,7 +22,6 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route element={<ProtectedAdmin />}>
           <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/create" element={<AdminDashboard />} />
         </Route>
       </Routes>
     </>

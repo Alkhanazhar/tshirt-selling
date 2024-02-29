@@ -1,5 +1,5 @@
 import express from "express";
-import { createProductController } from "../controllers/productController.js";
+import { createProductController, showProductController } from "../controllers/productController.js";
 import cloudinary from "cloudinary"
 import ExpressFormidable from "express-formidable"
 
@@ -15,6 +15,9 @@ router.post(
     "/create-product",
     createProductController
 );
+
+// router.get("/create-product/:id",getSingleProductController);
+router.get("/show-products",showProductController);
 
 router.post("/upload", ExpressFormidable({ maxFieldsSize: 5 * 2024 * 2024 }), async (req, res) => {
     try {

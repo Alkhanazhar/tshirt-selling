@@ -1,5 +1,4 @@
 import { Button } from "@mui/material";
-import React from "react";
 
 const Hero = () => {
   return (
@@ -13,21 +12,17 @@ const Hero = () => {
           <h1 className="text-5xl font-semibold text-zinc-300 leading-none">
             Thread and thrive
           </h1>
-          <p className="py-6 text-zinc-100 font-light leading-none tracking-wider">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
-            impedit nisi sunt nobis culpa magni quibusdam obcaecati cum sit
-            dolore cumque, possimus vel enim tenetur id animi ipsum esse?
-            Tempore, necessitatibus nam! Asperiores reprehenderit veniam
-            mollitia velit esse? Voluptate, odio.
-          </p>
+
           <Button
             variant="outlined"
             sx={{
               bgcolor: "#3b82f6",
               color: "black",
+              marginTop: "2rem",
+              fontWeight: "bold",
               "&:hover": { color: "white" },
             }}
-            className="btn bg-[#3b82f6]"
+            className="btn bg-[#3b82f6] font-extrabold"
           >
             lets Try
           </Button>
